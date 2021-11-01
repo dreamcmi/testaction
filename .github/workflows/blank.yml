@@ -21,5 +21,6 @@ jobs:
       - name: test idf
         run: |
           cd ~/esp/esp-idf
+          chmod +x export.sh
           ./export.sh
           idf.py --version

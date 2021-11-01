@@ -12,9 +12,9 @@ jobs:
       - name: pwd
         run: |
           pwd
+          python3 -m pip install --upgrade pip3
       - name: get esp-idf
         run: |
-          pwd
           cd ~
           mkdir -p ~/esp
           cd ~/esp

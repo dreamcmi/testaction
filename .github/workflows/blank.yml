@@ -11,6 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: get esp-idf
         run: |
+          pwd
           cd ~
           mkdir -p ~/esp
           cd ~/esp
@@ -21,8 +22,8 @@ jobs:
       - name: test idf
         run: |
           cd ~/esp/esp-idf
-          chmod +x export.sh
-          ./export.sh
+          source export.sh
+          idf.py --version
       - name: test usr
         run: |
           cd ~

@@ -16,7 +16,7 @@ jobs:
       # - name: rm repo
       #   run: rm -rf LuatOS/
       - name: show dir
-        run: | 
-        ls
-        ls demo/
-        echo demo/main.lua
+        run: |
+          ls
+          ls demo/
+          echo demo/main.lua

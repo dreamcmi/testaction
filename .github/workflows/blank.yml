@@ -12,6 +12,9 @@ jobs:
       - name: get esp-idf
         run: |
           pwd
+      - name: get esp-idf
+        run: |
+          pwd
           cd ~
           mkdir -p ~/esp
           cd ~/esp
@@ -24,7 +27,14 @@ jobs:
           cd ~/esp/esp-idf
           source export.sh
           idf.py --version
-      - name: test usr
+      - name: build c3
         run: |
           cd ~
+          git clone https://gitee.com/dreamcmi/LuatOS-ESP32
+          cd LuatOS-ESP32
+          idf.py set-target esp32c3
+          idf.py build
+      - name: cat c3
+        run: |
+          cd build/
           ls

@@ -23,4 +23,7 @@ jobs:
           cd ~/esp/esp-idf
           chmod +x export.sh
           ./export.sh
-          idf.py --version
+      - name: test usr
+        run: |
+          cd ~
+          ls

@@ -17,3 +17,5 @@ jobs:
       #   run: rm -rf LuatOS/
       - name: show dir
         run: ls
+        run: ls demo/
+        run: echo demo/main.lua

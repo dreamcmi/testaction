@@ -15,10 +15,11 @@ jobs:
           mkdir -p ~/esp
           cd ~/esp
           git clone --recursive https://github.com/espressif/esp-idf.git
-          git checkout v4.3.1
           cd ~/esp/esp-idf
+          git checkout v4.3.1
           ./install.sh
       - name: test idf
         run: |
-          . ~/esp/esp-idf/export.sh
+          cd ~/esp/esp-idf
+          ./export.sh
           idf.py --version

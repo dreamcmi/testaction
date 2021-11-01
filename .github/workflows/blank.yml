@@ -9,14 +9,16 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - name: get brach
-        run: git branch -a
-      # - name: clone lua
-      #   run: git clone https://gitee.com/openLuat/LuatOS
-      # - name: rm repo
-      #   run: rm -rf LuatOS/
-      - name: show dir
+      - name: get esp-idf
         run: |
-          ls
-          ls demo/
-          echo demo/main.lua
+          cd ~
+          mkdir -p ~/esp
+          cd ~/esp
+          git clone --recursive https://github.com/espressif/esp-idf.git
+          git checkout v4.3.1
+          cd ~/esp/esp-idf
+          ./install.sh
+      - name: test idf
+        run: |
+          . ~/esp/esp-idf/export.sh
+          idf.py --version

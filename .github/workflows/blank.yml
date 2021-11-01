@@ -27,8 +27,6 @@ jobs:
           cd ~/esp/esp-idf
           source export.sh
           idf.py --version
-      - name: build c3
-        run: |
           cd ~
           git clone https://gitee.com/dreamcmi/LuatOS-ESP32
           cd LuatOS-ESP32

@@ -15,16 +15,12 @@ jobs:
           pip3 install --upgrade pip
       - name: get esp-idf
         run: |
-          cd ~
           mkdir -p ~/esp
           cd ~/esp
-          git clone --recursive https://github.com/espressif/esp-idf.git
+          git clone -b v4.3.1 --recursive https://github.com/espressif/esp-idf.git
           cd ~/esp/esp-idf
-          git checkout v4.3.1
-          git submodule init
-          git submodule update
           ./install.sh
-      - name: test idf
+      - name: build c3
         run: |
           cd ~/esp/esp-idf
           source export.sh

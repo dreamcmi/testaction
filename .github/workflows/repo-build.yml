@@ -26,8 +26,10 @@ jobs:
           idf.py set-target esp32c3
           idf.py build
           python3 esp32v2.py -t esp32c3 -p
+          mkdir firmware
+          mv *.soc firmware
       - name: Upload bin directory
         uses: actions/upload-artifact@main
         with:
           name: c3-master
-          path: *.soc
+          path: firmware/

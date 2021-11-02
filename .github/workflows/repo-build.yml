@@ -7,13 +7,9 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - name: update pip
-        run: |
-          pwd
-          pip3 install --upgrade pip
-          pip3 install -r requirements.txt
       - name: get esp-idf
         run: |
+          pip3 install --upgrade pip
           mkdir -p ~/esp
           cd ~/esp
           git clone -b v4.3.1 --recursive https://github.com/espressif/esp-idf.git
@@ -25,6 +21,9 @@ jobs:
           idf.py --version
           idf.py set-target esp32c3
           idf.py build
+      - name: pack
+        run: |
+          pip3 install -r requirements.txt
           python3 esp32v2.py -t esp32c3 -p
           mkdir firmware
           mv *.soc firmware

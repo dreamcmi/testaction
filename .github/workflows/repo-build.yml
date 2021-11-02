@@ -26,3 +26,8 @@ jobs:
           idf.py build
           cd build/
           ls
+      - name: Upload bin directory
+        uses: actions/upload-artifact@main
+        with:
+          name: c3-master
+          path: build/
